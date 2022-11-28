@@ -4,6 +4,7 @@ $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'phplogin';
+$ADMIN = 'admin';
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno()) {
@@ -25,22 +26,26 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 	if ($stmt->num_rows > 0) {
 		$stmt->bind_result($id, $password);
 		$stmt->fetch();
-		/* acc exists
-		verify pass */
-		/* TODO: make sure everything about encryption works
-		only passwords generated with password_hash() will work
-		*/
+		
+		/* only passwords encrypted with bcrypt will work */
 		if (password_verify($_POST['password'], $password)) {
-			/* create sessions */
-
-			/* session_regenerate_id() also helps prevent session hijacking
-			it regenerates the user's session ID that is stored on the server
-			and as a cookie in the browser */
-			session_regenerate_id();
-			$_SESSION['loggedin'] = TRUE;
-			$_SESSION['name'] = $_POST['username'];
-			$_SESSION['id'] = $id;
-			echo 'Welcome ' . $_SESSION['name'] . '!';
+			if ($_POST['username'] == $ADMIN) {
+				/* session_regenerate_id() also helps prevent session hijacking
+				it regenerates the user's session ID that is stored on the server
+				and as a cookie in the browser */
+				session_regenerate_id();
+				$_SESSION['loggedin'] = TRUE;
+				$_SESSION['name'] = $_POST['username'];
+				$link = "http://localhost/admin_dashboard.html";
+				header("Location: $link");
+			} else {
+				session_regenerate_id();
+				$_SESSION['loggedin'] = TRUE;
+				$_SESSION['name'] = $_POST['username'];
+				$_SESSION['id'] = $id;
+				$link = "http://localhost/client_dashboard.html";
+				header("Location: $link");
+			}
 		} else {
 			echo 'Incorrect username and/or password';
 		}
