@@ -104,7 +104,7 @@
 
     </div>
 
-    <script src="js/admin_dashboard.js"></script>
+    <script src="js/menu_dashboard.js"></script>
 </body>
 
 </html>

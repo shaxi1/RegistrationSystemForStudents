@@ -65,7 +65,7 @@
 
     </div>
 
-    <script src="js/.js"></script>
+    <script src="js/menu_dashboard.js"></script>
 </body>
 
 </html>
