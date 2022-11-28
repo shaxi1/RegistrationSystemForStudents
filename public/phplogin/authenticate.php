@@ -5,8 +5,6 @@ $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'phplogin';
 $ADMIN = 'admin';
-$LINK_ADMIN = "http://localhost/admin_dashboard.html";
-$LINK_USER = "http://localhost/client_dashboard.html";
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno()) {
@@ -31,20 +29,18 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 		
 		/* only passwords encrypted with bcrypt will work */
 		if (password_verify($_POST['password'], $password)) {
+			/* session_regenerate_id() also helps prevent session hijacking
+			it regenerates the user's session ID that is stored on the server
+			and as a cookie in the browser */
+			session_regenerate_id();
+			$_SESSION['loggedin'] = TRUE;
+			$_SESSION['name'] = $_POST['username'];
+			$_SESSION['id'] = $id;
+
 			if ($_POST['username'] == $ADMIN) {
-				/* session_regenerate_id() also helps prevent session hijacking
-				it regenerates the user's session ID that is stored on the server
-				and as a cookie in the browser */
-				session_regenerate_id();
-				$_SESSION['loggedin'] = TRUE;
-				$_SESSION['name'] = $_POST['username'];
-				header("Location: $LINK_ADMIN");
+				header("Location: adminhome.php");
 			} else {
-				session_regenerate_id();
-				$_SESSION['loggedin'] = TRUE;
-				$_SESSION['name'] = $_POST['username'];
-				$_SESSION['id'] = $id;
-				header("Location: $LINK_USER");
+				header("Location: userhome.php");
 			}
 		} else {
 			echo 'Incorrect username and/or password';

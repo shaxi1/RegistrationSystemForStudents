@@ -28,7 +28,9 @@
                 <span class="material-icons-outlined">search</span>
             </div>
             <div class="header-right">
-                <span class="material-icons-outlined">notifications</span>
+                <div class="logout-icon" onclick="logout()">
+                    <span class="material-icons-outlined">logout</span>
+                </div>
                 <span class="material-icons-outlined">email</span>
                 <span class="material-icons-outlined">account_circle</span>
             </div>
@@ -37,7 +39,7 @@
         <aside id="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined">inventory</span> Inventory
+                    <span class="material-icons-outlined">inventory</span> NAME<!-- <p>TODO:<?=$_SESSION['name']?></p> -->
                 </div>
                 <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
             </div>
@@ -56,7 +58,7 @@
                     <span class="material-icons-outlined">stacked_bar_chart</span> Summary
                 </li>
             </ul>
-            
+
         </aside>
 
         <main class="main-container">
@@ -103,8 +105,10 @@
         </main>
 
     </div>
-
-    <script src="js/admin_dashboard.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="js/menu_dashboard.js"></script>
+    <script src="js/logout.js"></script>
 </body>
 
 </html>
