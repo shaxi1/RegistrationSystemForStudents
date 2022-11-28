@@ -5,6 +5,8 @@ $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
 $DATABASE_NAME = 'phplogin';
 $ADMIN = 'admin';
+$LINK_ADMIN = "http://localhost/admin_dashboard.html";
+$LINK_USER = "http://localhost/client_dashboard.html";
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno()) {
@@ -36,15 +38,13 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 				session_regenerate_id();
 				$_SESSION['loggedin'] = TRUE;
 				$_SESSION['name'] = $_POST['username'];
-				$link = "http://localhost/admin_dashboard.html";
-				header("Location: $link");
+				header("Location: $LINK_ADMIN");
 			} else {
 				session_regenerate_id();
 				$_SESSION['loggedin'] = TRUE;
 				$_SESSION['name'] = $_POST['username'];
 				$_SESSION['id'] = $id;
-				$link = "http://localhost/client_dashboard.html";
-				header("Location: $link");
+				header("Location: $LINK_USER");
 			}
 		} else {
 			echo 'Incorrect username and/or password';
