@@ -16,6 +16,9 @@ if (!isset($_POST['username'], $_POST['password'])) {
 	exit('Please fill both the username and password fields!');
 }
 
+trim($_POST['username']);
+trim($_POST['password']);
+
 /* use $stmt to prevent SQL injection */
 if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
 	$stmt->bind_param('s', $_POST['username']);
