@@ -1,11 +1,11 @@
 var addClassOpen = false;
-var arrayOfElements = document.getElementsByClassName('addClass-section');
-var lengthOfArray = arrayOfElements.length;
+var addClass_ArrayOfElements = document.getElementsByClassName('addClass-section');
+var addClass_ArrayLength = addClass_ArrayOfElements.length;
 
 function openClassSection() {
     if (!addClassOpen) {
-        for (var i = 0; i < lengthOfArray; i++)
-            arrayOfElements[i].style.display = 'inline';
+        for (var i = 0; i < addClass_ArrayLength; i++)
+            addClass_ArrayOfElements[i].style.display = 'inline';
         addClassOpen = true;
     }
 }
