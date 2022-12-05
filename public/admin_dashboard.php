@@ -32,9 +32,10 @@
                 <div class="logout-icon" onclick="logout()">
                     <span class="material-icons-outlined">logout</span>
                 </div>
-                <span class="material-icons-outlined">email</span>
-                <span class="material-icons-outlined">account_circle</span>
-            </div>
+                <div class="profile-icon" onclick="profilePage_redirect()">
+                    <span class="material-icons-outlined">account_circle</span>
+                </div>
+        </div>
         </header>
 
         <aside id="sidebar">
@@ -144,6 +145,7 @@
                     </div>
 
                     <input type="submit" value="Dodaj">
+                    <!-- TODO: https://stackoverflow.com/questions/820951/hide-div-after-a-few-seconds APPROVED KOMUNIKAT -->
 
                 </form>
 
@@ -156,6 +158,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu_dashboard.js"></script>
     <script src="js/mainSections_appear_admin.js"></script>
+    <script src="js/profilePage_redirect.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

@@ -18,8 +18,6 @@ if (!isset($_POST['username'], $_POST['password'])) {
 
 trim($_POST['username']);
 trim($_POST['password']);
-/*$parsed_username = htmlspecialchars($_POST['username']);
-$parsed_pass = htmlspecialchars($_POST['password']);*/
 $parsed_username = htmlspecialchars($_POST['username']);
 $parsed_pass = htmlspecialchars($_POST['password']);
 
