@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pl-PL" dir="ltr">
 
@@ -41,7 +45,7 @@
         <aside id="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined">inventory</span> NAME<!-- <p>TODO:<?=$_SESSION['name']?></p> -->
+                    <span class="material-icons-outlined">inventory</span> <?=$_SESSION['name']?></p>
                 </div>
                 <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
             </div>
