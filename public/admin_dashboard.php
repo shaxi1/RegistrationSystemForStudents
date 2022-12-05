@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <link rel="stylesheet" href="css/admin_dashboard.css">
+    <link rel="stylesheet" href="css/submit_button.css">
 </head>
 
 <body>
