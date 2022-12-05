@@ -51,7 +51,7 @@
                 <li class="sidebar-list-item">
                     <span class="material-icons-outlined">engineering</span> Lecturers
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" onclick="openClassSection()">
                     <span class="material-icons-outlined">note_add</span> Add Class
                 </li>
                 <li class="sidebar-list-item">
@@ -102,12 +102,59 @@
 
             </div>
 
+            <div class="addClass-section">
+
+                <form action="phpdatabase/add_class.php" method="post">
+                    <div class="txt_field">
+                        <input type="text" name="name" required>
+                        <span></span>
+                        <label>Nazwa Przedmiotu</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="departament" required>
+                        <span></span>
+                        <label>Wydział</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="course" required>
+                        <span></span>
+                        <label>Kierunek</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="number" name="semester" required>
+                        <span></span>
+                        <label>Semestr</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="number" name="room" required>
+                        <span></span>
+                        <label>Sala</label>
+                    </div>
+                    <div class="txt_field">
+                        <!-- parse in JS https://stackoverflow.com/questions/36921847/how-can-i-get-the-weekday-from-an-users-input-date -->
+                        <input type="date" name="date" required>
+                        <span></span>
+                        <label>Pierwsze zajęcia</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="lecturer_surname" required>
+                        <span></span>
+                        <label>Nazwisko Wykładowcy</label>
+                    </div>
+
+                    <input type="submit" value="Dodaj">
+
+                </form>
+
+            </div>
+
         </main>
 
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu_dashboard.js"></script>
+    <script src="js/mainSections_appear_admin.js"></script>
     <script src="js/logout.js"></script>
 </body>
 
