@@ -7,7 +7,7 @@ session_start();
 	<head>
 		<meta charset="utf-8">
 		<title>Strona Profilowa</title>
-		<link href="profile.css" rel="stylesheet" type="text/css">
+		<link href="http://localhost/css/profile.css" rel="stylesheet" type="text/css">
 	</head>
 
 	<body class="loggedin">
