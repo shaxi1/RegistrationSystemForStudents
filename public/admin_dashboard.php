@@ -122,7 +122,7 @@
                         <label>Kierunek</label>
                     </div>
                     <div class="txt_field">
-                        <input type="number" name="semester" required>
+                        <input type="number" name="semester" min="1" max="8" onKeyDown="return false" required>
                         <span></span>
                         <label>Semestr</label>
                     </div>
