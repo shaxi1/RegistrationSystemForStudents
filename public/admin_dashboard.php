@@ -137,7 +137,6 @@ session_start();
                         <label>Sala</label>
                     </div>
                     <div class="txt_field">
-                        <!-- parse in JS https://stackoverflow.com/questions/36921847/how-can-i-get-the-weekday-from-an-users-input-date -->
                         <input type="date" name="date" required>
                         <span></span>
                         <label>Pierwsze zajęcia</label>
@@ -146,6 +145,11 @@ session_start();
                         <input type="text" name="lecturer_surname" required>
                         <span></span>
                         <label>Nazwisko Wykładowcy</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="lecturer_name" required>
+                        <span></span>
+                        <label>Imię Wykładowcy</label>
                     </div>
 
                     <input type="submit" value="Dodaj">
