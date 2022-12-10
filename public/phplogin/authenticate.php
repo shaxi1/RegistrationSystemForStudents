@@ -16,8 +16,7 @@ if (!isset($_POST['username'], $_POST['password'])) {
 	exit('Please fill both the username and password fields!');
 }
 
-trim($_POST['username']);
-trim($_POST['password']);
+$_POST = array_map("trim", $_POST);
 $parsed_username = htmlspecialchars($_POST['username']);
 $parsed_pass = htmlspecialchars($_POST['password']);
 

@@ -16,7 +16,8 @@ if (!isset($_POST['name'], $_POST['departament'], $_POST['course'], $_POST['seme
 	exit('Please fill all fields!');
 }
 
-
+$_POST = array_map("trim", $_POST);
+$_POST = array_map("htmlspecialchars", $_POST);
 
 // mysql_insert_id(resource $link_identifier = NULL): int
 // Retrieves the ID generated for an AUTO_INCREMENT column by the previous query (usually INSERT).
