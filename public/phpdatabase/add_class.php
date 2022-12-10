@@ -19,6 +19,21 @@ if (!isset($_POST['name'], $_POST['departament'], $_POST['course'], $_POST['seme
 $_POST = array_map("trim", $_POST);
 $_POST = array_map("htmlspecialchars", $_POST);
 
+/* get lecturer_id by Name and Surname */
+$lecturer_name = $_POST['lecturer_name'];
+$lecturer_surname = $_POST['lecturer_surname'];
+$query = sprintf("SELECT lecturer_id FROM lecturer 
+	WHERE name='%s' AND surname='%s'",
+	mysqli_real_escape_string($conn, $lecturer_name),
+	mysqli_real_escape_string($conn, $lecturer_surname));
+
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$lecturer_idx = $row['lecturer_id'];
+if ($lecturer_idx == false) {
+	exit("No such lecturer: $lecturer_name $lecturer_surname");
+}
+
 /* use statements to prevent SQL injection
    statement for location_date table */
 if ($stmt_location_date = $conn->prepare("INSERT INTO location_date (room, event_date) VALUES (?, ?)")) {
@@ -43,20 +58,6 @@ if ($stmt_class = $conn->prepare("INSERT INTO class (location_date_id, name, dep
 /* get autoincrement value of class_id */
 $class_idx =  $conn->insert_id;
 $stmt_class->close();
-/* get lecturer_id by Name and Surname */
-$lecturer_name = $_POST['lecturer_name'];
-$lecturer_surname = $_POST['lecturer_surname'];
-$query = sprintf("SELECT lecturer_id FROM lecturer 
-	WHERE name='%s' AND surname='%s'",
-	mysqli_real_escape_string($conn, $lecturer_name),
-	mysqli_real_escape_string($conn, $lecturer_surname));
-
-$result = mysqli_query($conn, $query);
-$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-$lecturer_idx = $row['lecturer_id'];
-if ($lecturer_idx == false) {
-	exit("No such lecturer: ($lecturer_name) ($lecturer_surname)");
-}
 
 /* statement for lecturer_classes (association of lecturer_id with class_id) */
 if ($stmt_lecturer_classes = $conn->prepare("INSERT INTO lecturer_classes (lecturer_id, class_id) VALUES (?, ?)")) {
@@ -65,6 +66,8 @@ if ($stmt_lecturer_classes = $conn->prepare("INSERT INTO lecturer_classes (lectu
 } else {
 	echo 'Error inserting to lecturer_classes table!';
 }
-
 $stmt_lecturer_classes->close();
+
+$redirect_on_add_success = "http://localhost/admin_dashboard.php";
+header("Location: $redirect_on_add_success");
 ?>
