@@ -29,14 +29,10 @@ body {
 }
 
 .bg_button {
-    /* margin: 0;
-    position: absolute;
-    
-    top: 50%;
-    bottom: 50%; */
-
-    width: 200px;
-    height: 50px;
+    display: inline-block;
+    width: 160px;
+    height: 30px;
+    text-decoration: none;
     border: none;
     background: #f1c50e;
     border-radius: 25px;
@@ -50,4 +46,65 @@ body {
 .bg_button:hover {
     border-color: #2691d9;
     transition: .5s;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url('../images/mainpage_background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.navbar{
+    width: 85%;
+    margin: auto;
+    padding: 35px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    width: 120px;
+    cursor: pointer;
+}
+.navbar ul li{
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+    position: relative;
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+    content: '';
+    height:3px;
+    width:0%;
+    background:#009688;
+    position:absolute;
+    left:0;
+    bottom:-10px;
+    transition:0.5s;
+}
+.navbar ul li:hover::after{
+    width:100%;
+}
+.content{
+    position:absolute;
+    width:100%;
+    top:50%;
+    transform: translateY(-50%);
+    text-align:center;
+    color:#fff;
+}
+.content h1{
+    font-size:70px;
+    margin-top:80px;
+}
+.content p{
+    margin:20px auto;
+    font-weight:100;
+    line-height:25px;
 }

@@ -152,7 +152,7 @@ session_start();
                         <label>Imię Wykładowcy</label>
                     </div>
 
-                    <input type="submit" value="Dodaj">
+                    <input type="submit" value="Dodaj" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
                     <!-- TODO: https://stackoverflow.com/questions/820951/hide-div-after-a-few-seconds APPROVED KOMUNIKAT -->
 
                 </form>
