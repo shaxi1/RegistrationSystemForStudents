@@ -16,3 +16,9 @@ function closeClassSection() {
         addClassOpen = false;
     }
 }
+
+// function showAddClassOk() {
+//     setTimeout(function() {
+//         $('add-class-ok').fadeOut('fast');
+//     }, 1000);
+// }
