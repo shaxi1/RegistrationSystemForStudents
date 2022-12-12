@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pl-PL" dir="ltr"></html>
+
+	<head>
+		<meta http-equiv="Content-Type"content="text/html; charset=utf-8"/>
+		<meta name="viewport"content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+		<title>Contact</title>
+
+		<link href="css/contact.css"rel="stylesheet"type="text/css"/>
+		<link href="css/submit_button.css"rel="stylesheet"type="text/css"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+	</head>
+
+	<body>
+
+		<div class="contact-wrap">
+			<div class="contact-in">
+				<h1></h1>
+				<h2><i class="fa fa-phone" aria-hidden="true"></i> Numer tel.</h2>
+				<p>+48 645 242 142</p>
+				<h2><i class="fa fa-envelope" aria-hidden="true"></i> E-mail</h2>
+				<p>rejstracja@studenci.edu.pl</p>
+				<h2><i class="fa fa-map-marker" aria-hidden="true"></i> Adres</h2>
+				<p>Stefana Żeromskiego 116, 90-924 Łódź</p>
+				<ul>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+
+			<div class="contact-in">
+				<h1>Wyślij pytanie</h1>
+				<form action="phpemail/send_mail.php" method="post">
+					<div class="txt_field">
+						<input type="text" name="name" required>
+						<span></span>
+						<label>Imię</label>
+					</div>
+					<div class="txt_field">
+						<input type="email" name="email" required>
+						<span></span>
+						<label>Twój e-mail</label>
+					</div>
+					<textarea placeholder="Message" name="msg" class="contact-in-textarea" required></textarea>
+					<input type="submit" value="Wyślij" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
+				</form>
+			</div>
+
+			<div class="contact-in">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d9879.476957981533!2d19.4517176!3d51.7537146!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xbe75c3beee4bad56!2sLodz%20University%20of%20Technology!5e0!3m2!1sen!2spl!4v1670878700151!5m2!1sen!2spl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+		</div>
+		
+	</body>
+
+</html>
