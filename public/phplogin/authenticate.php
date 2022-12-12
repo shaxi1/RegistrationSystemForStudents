@@ -16,9 +16,13 @@ if (!isset($_POST['username'], $_POST['password'])) {
 	exit('Please fill both the username and password fields!');
 }
 
+$_POST = array_map("trim", $_POST);
+$parsed_username = htmlspecialchars($_POST['username']);
+$parsed_pass = htmlspecialchars($_POST['password']);
+
 /* use $stmt to prevent SQL injection */
 if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
-	$stmt->bind_param('s', $_POST['username']);
+	$stmt->bind_param('s', $parsed_username);
 	$stmt->execute();
 	$stmt->store_result();
 
@@ -28,16 +32,16 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
 		$stmt->fetch();
 		
 		/* only passwords encrypted with bcrypt will work */
-		if (password_verify($_POST['password'], $password)) {
+		if (password_verify($parsed_pass, $password)) {
 			/* session_regenerate_id() also helps prevent session hijacking
 			it regenerates the user's session ID that is stored on the server
 			and as a cookie in the browser */
 			session_regenerate_id();
 			$_SESSION['loggedin'] = TRUE;
-			$_SESSION['name'] = $_POST['username'];
+			$_SESSION['name'] = $parsed_username;
 			$_SESSION['id'] = $id;
 
-			if ($_POST['username'] == $ADMIN) {
+			if ($parsed_username == $ADMIN) {
 				header("Location: adminhome.php");
 			} else {
 				header("Location: userhome.php");

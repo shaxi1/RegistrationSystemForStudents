@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pl-PL" dir="ltr">
 
@@ -13,6 +17,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <link rel="stylesheet" href="css/admin_dashboard.css">
+    <link rel="stylesheet" href="css/submit_button.css">
 </head>
 
 <body>
@@ -31,15 +36,16 @@
                 <div class="logout-icon" onclick="logout()">
                     <span class="material-icons-outlined">logout</span>
                 </div>
-                <span class="material-icons-outlined">email</span>
-                <span class="material-icons-outlined">account_circle</span>
-            </div>
+                <div class="profile-icon" onclick="profilePage_redirect()">
+                    <span class="material-icons-outlined">account_circle</span>
+                </div>
+        </div>
         </header>
 
         <aside id="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined">inventory</span> NAME<!-- <p>TODO:<?=$_SESSION['name']?></p> -->
+                    <span class="material-icons-outlined">inventory</span> <?=$_SESSION['name']?> <!--</p>-->
                 </div>
                 <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
             </div>
@@ -51,7 +57,7 @@
                 <li class="sidebar-list-item">
                     <span class="material-icons-outlined">engineering</span> Lecturers
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" onclick="openClassSection()">
                     <span class="material-icons-outlined">note_add</span> Add Class
                 </li>
                 <li class="sidebar-list-item">
@@ -102,12 +108,68 @@
 
             </div>
 
+            <div class="addClass-section">
+
+                <form action="phpdatabase/add_class.php" method="post">
+                    <div class="txt_field">
+                        <input type="text" name="name" required>
+                        <span></span>
+                        <label>Nazwa Przedmiotu</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="departament" required>
+                        <span></span>
+                        <label>Wydział</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="course" required>
+                        <span></span>
+                        <label>Kierunek</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="number" name="semester" min="1" max="8" onKeyDown="return false" required>
+                        <span></span>
+                        <label>Semestr</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="number" name="room" required>
+                        <span></span>
+                        <label>Sala</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="date" name="date" required>
+                        <span></span>
+                        <label>Pierwsze zajęcia</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="lecturer_surname" required>
+                        <span></span>
+                        <label>Nazwisko Wykładowcy</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="lecturer_name" required>
+                        <span></span>
+                        <label>Imię Wykładowcy</label>
+                    </div>
+
+                    <input type="submit" value="Dodaj">
+                    <!-- TODO: https://stackoverflow.com/questions/820951/hide-div-after-a-few-seconds APPROVED KOMUNIKAT -->
+
+                </form>
+
+            </div>
+            <!-- <div class="add-class-ok"> 
+                Class Added!
+            </div> -->
+
         </main>
 
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu_dashboard.js"></script>
+    <script src="js/mainSections_appear_admin.js"></script>
+    <script src="js/profilePage_redirect.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

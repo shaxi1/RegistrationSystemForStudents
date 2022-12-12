@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pl-PL" dir="ltr">
 
@@ -31,15 +35,16 @@
                 <div class="logout-icon" onclick="logout()">
                     <span class="material-icons-outlined">logout</span>
                 </div>
-                <span class="material-icons-outlined">email</span>
-                <span class="material-icons-outlined">account_circle</span>
+                <div class="profile-icon" onclick="profilePage_redirect()">
+                    <span class="material-icons-outlined">account_circle</span>
+                </div>
             </div>
         </header>
 
         <aside id="sidebar">
             <div class="sidebar-title">
                 <div class="sidebar-brand">
-                    <span class="material-icons-outlined">inventory</span> IMIE I NAZWISKO
+                    <span class="material-icons-outlined">inventory</span> <?=$_SESSION['name']?><!--</p>-->
                 </div>
                 <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
             </div>
@@ -69,6 +74,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu_dashboard.js"></script>
+    <script src="js/profilePage_redirect.js"></script>
     <script src="js/logout.js"></script>
 </body>
 
