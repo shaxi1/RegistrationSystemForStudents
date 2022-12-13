@@ -39,8 +39,10 @@ $result = mysqli_query($sql_login, $query);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $count = $row['count'];
 if ($count > 0) {
-	exit('Username already exists!');
+	exit("Username: $username already exists!");
 }
+
+
 
 
 
