@@ -42,8 +42,31 @@ if ($count > 0) {
 	exit("Username: $username already exists!");
 }
 
+/* create student record in classes database */
+if ($stmt_classes = $sql_class->prepare("INSERT INTO student (name, surname) VALUES (?, ?)")) {
+	$stmt_classes->bind_param("ss", $_POST['name'], $_POST['surname']);
+	$stmt_classes->execute();
+} else {
+	echo 'Error inserting into student table!';
+}
+
+/* update register number based on student_id */
+$register_number =  $sql_class->insert_id;
+$stmt_classes->close();
+$query_update_registerno = sprintf("UPDATE student SET register_number=%s WHERE id='%s'",
+	mysqli_real_escape_string($sql_class, $register_number),
+	mysqli_real_escape_string($sql_class, $register_number));
+
+if ($sql_class->query($query_update_registerno) === TRUE) {
+	echo "Record updated successfully";
+} else {
+	echo "Error updating record: " . $sql_class->error;
+}
+
+/* add new address for the student based on his student_it */
 
 
+/* add new student to phplogin database and set register_number */
 
 
 
