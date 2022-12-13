@@ -68,6 +68,7 @@ if ($stmt_lecturer_classes = $conn->prepare("INSERT INTO lecturer_classes (lectu
 }
 $stmt_lecturer_classes->close();
 
+$conn->close();
 $redirect_on_add_success = "http://localhost/admin_dashboard.php";
 header("Location: $redirect_on_add_success");
 ?>

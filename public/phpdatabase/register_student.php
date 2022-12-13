@@ -69,5 +69,6 @@ if ($sql_class->query($query_update_registerno) === TRUE) {
 /* add new student to phplogin database and set register_number */
 
 
-
+$sql_class->close();
+$sql_login->close();
 ?>
