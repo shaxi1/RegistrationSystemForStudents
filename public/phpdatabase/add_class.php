@@ -56,7 +56,7 @@ if ($stmt_class = $conn->prepare("INSERT INTO class (location_date_id, name, dep
 }
 
 /* get autoincrement value of class_id */
-$class_idx =  $conn->insert_id;
+$class_idx = $conn->insert_id;
 $stmt_class->close();
 
 /* statement for lecturer_classes (association of lecturer_id with class_id) */
