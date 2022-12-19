@@ -42,6 +42,10 @@ if ($count > 0) {
 	exit("Username: $username already exists!");
 }
 
+if(!preg_match('/^[0-9]{1,14}+$/', $_POST['phone_number'])) {
+	exit("Invalid Phone Number!");
+}
+
 /* create student record in classes database */
 if ($stmt_classes = $sql_class->prepare("INSERT INTO student (name, surname) VALUES (?, ?)")) {
 	$stmt_classes->bind_param("ss", $_POST['name'], $_POST['surname']);
