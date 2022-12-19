@@ -56,7 +56,7 @@ if ($stmt_class = $conn->prepare("INSERT INTO class (location_date_id, name, dep
 }
 
 /* get autoincrement value of class_id */
-$class_idx =  $conn->insert_id;
+$class_idx = $conn->insert_id;
 $stmt_class->close();
 
 /* statement for lecturer_classes (association of lecturer_id with class_id) */
@@ -68,6 +68,7 @@ if ($stmt_lecturer_classes = $conn->prepare("INSERT INTO lecturer_classes (lectu
 }
 $stmt_lecturer_classes->close();
 
+$conn->close();
 $redirect_on_add_success = "http://localhost/admin_dashboard.php";
 header("Location: $redirect_on_add_success");
 ?>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl-PL" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/submit_button.css">
+</head>
+
+<body>
+    <div class="bg">
+        <img src="images/login_background.jpeg" alt="">
+    </div>
+
+    <div class="center">
+        <h1>Rejstracja</h1>
+        <form action="phpdatabase/register_student.php" method="post">
+
+            <div class="txt_field">
+                <input type="text" name="name" required>
+                <span></span>
+                <label>Imię</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="surname" required>
+                <span></span>
+                <label>Nazwisko</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="username" required>
+                <span></span>
+                <label>Username (login)</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="pass1" required>
+                <span></span>
+                <label>Hasło</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="pass2" required>
+                <span></span>
+                <label>Potwierdź hasło</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="address" required>
+                <span></span>
+                <label>Adres</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="phone_number" required>
+                <span></span>
+                <label>Numer Telefonu</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="email" required>
+                <span></span>
+                <label>E-mail</label>
+            </div>
+
+            <input type="submit" value="Zarejestruj" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
+        </form>
+    </div>
+
+</body>
+
+</html>
