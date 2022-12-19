@@ -47,7 +47,7 @@ if ($stmt_classes = $sql_class->prepare("INSERT INTO student (name, surname) VAL
 	$stmt_classes->bind_param("ss", $_POST['name'], $_POST['surname']);
 	$stmt_classes->execute();
 } else {
-	echo 'Error inserting into student table!';
+	exit('Error inserting into student table!');
 }
 
 /* update register number based on student_id */
@@ -60,7 +60,7 @@ $query_update_registerno = sprintf("UPDATE student SET register_number=%s WHERE 
 if ($sql_class->query($query_update_registerno) === TRUE) {
 	echo "Record updated successfully";
 } else {
-	echo "Error updating record: " . $sql_class->error;
+	exit("Error updating record: " . $sql_class->error);
 }
 
 /* add new address for the student based on his student_it */
@@ -68,7 +68,7 @@ if ($stmt_classes = $sql_class->prepare("INSERT INTO address (email, full_addres
 	$stmt_classes->bind_param("sssi", $_POST['email'], $_POST['address'], $_POST['phone_number'], $register_number);
 	$stmt_classes->execute();
 } else {
-	echo 'Error inserting into address table!';
+	exit('Error inserting into address table!');
 }
 
 /* add new student to phplogin database and set register_number */
@@ -77,7 +77,7 @@ if ($stmt_login = $sql_login->prepare("INSERT INTO accounts (username, password,
 	$stmt_login->bind_param("ssis", $_POST['username'], $password, $register_number, $_POST['email']);
 	$stmt_login->execute();
 } else {
-	echo 'Error inserting into accounts table!';
+	exit('Error inserting into accounts table!');
 }
 
 $sql_class->close();
