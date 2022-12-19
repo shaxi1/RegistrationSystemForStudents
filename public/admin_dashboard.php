@@ -54,8 +54,8 @@ session_start();
                 <li class="sidebar-list-item">
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
-                <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">engineering</span> Lecturers
+                <li class="sidebar-list-item" onclick="openLecturerSection()">
+                    <span class="material-icons-outlined">engineering</span> Add Lecturer
                 </li>
                 <li class="sidebar-list-item" onclick="openClassSection()">
                     <span class="material-icons-outlined">note_add</span> Add Class
@@ -161,6 +161,26 @@ session_start();
             <!-- <div class="add-class-ok"> 
                 Class Added!
             </div> -->
+            <div class="addLecturer-section">
+                <form action="phpdatabase/add_lecturer.php" method="post">
+                    <div class="txt_field">
+                        <input type="text" name="name" required>
+                        <span></span>
+                        <label>Imię</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="surname" required>
+                        <span></span>
+                        <label>Nazwisko</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="text" name="degree" required>
+                        <span></span>
+                        <label>Stopień</label>
+                    </div>
+
+                    <input type="submit" value="Dodaj" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
+            </div>
 
         </main>
 
