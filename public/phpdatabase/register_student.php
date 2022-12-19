@@ -53,7 +53,7 @@ if ($stmt_classes = $sql_class->prepare("INSERT INTO student (name, surname) VAL
 /* update register number based on student_id */
 $register_number =  $sql_class->insert_id;
 $stmt_classes->close();
-$query_update_registerno = sprintf("UPDATE student SET register_number=%s WHERE id='%s'",
+$query_update_registerno = sprintf("UPDATE student SET register_number=%s WHERE student_id='%s'",
 	mysqli_real_escape_string($sql_class, $register_number),
 	mysqli_real_escape_string($sql_class, $register_number));
 
@@ -64,11 +64,25 @@ if ($sql_class->query($query_update_registerno) === TRUE) {
 }
 
 /* add new address for the student based on his student_it */
-
+if ($stmt_classes = $sql_class->prepare("INSERT INTO address (email, full_address, phone, student_id) VALUES (?, ?, ?, ?)")) {
+	$stmt_classes->bind_param("sssi", $_POST['email'], $_POST['address'], $_POST['phone_number'], $register_number);
+	$stmt_classes->execute();
+} else {
+	echo 'Error inserting into address table!';
+}
 
 /* add new student to phplogin database and set register_number */
-
+if ($stmt_login = $sql_login->prepare("INSERT INTO accounts (username, password, register_number, email) VALUES (?, ?, ?, ?)")) {
+	$password = password_hash($_POST['pass1'], PASSWORD_DEFAULT);
+	$stmt_login->bind_param("ssis", $_POST['username'], $password, $register_number, $_POST['email']);
+	$stmt_login->execute();
+} else {
+	echo 'Error inserting into accounts table!';
+}
 
 $sql_class->close();
 $sql_login->close();
+
+$LINK_MAIN = "http://localhost/index.html";
+header("Location: $LINK_MAIN");
 ?>
