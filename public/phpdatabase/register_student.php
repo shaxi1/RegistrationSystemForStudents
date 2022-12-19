@@ -42,6 +42,7 @@ if ($count > 0) {
 	exit("Username: $username already exists!");
 }
 
+/* validate phone number */
 if(!preg_match('/^[0-9]{1,14}+$/', $_POST['phone_number'])) {
 	exit("Invalid Phone Number!");
 }
