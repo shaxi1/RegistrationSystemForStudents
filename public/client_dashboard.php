@@ -79,7 +79,7 @@ session_start();
                 <h2 align="center">Wyszukaj i zapisz na zajęcia</h2><br/>
                 <div class="form-group">
                     <div class="input-group">
-                        <span class="input-group-addon">Search</span>
+                        <span class="input-group-addon">Szukaj</span>
                         <input type="text" name="search_text" id="search_text" placeholder="Nazwa przedmiotu lub numer semestru" class="form-control"/>
                     </div>
                 </div>
