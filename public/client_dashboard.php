@@ -54,10 +54,10 @@ session_start();
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
                 <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">note_add</span> Enroll to class
+                    <span class="material-icons-outlined">note_add</span> Zapisz na zajęcia
                 </li>
                 <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">stacked_bar_chart</span> Summary
+                    <span class="material-icons-outlined">stacked_bar_chart</span> Moje zajęcia (koszyk)
                 </li>
             </ul>
             
