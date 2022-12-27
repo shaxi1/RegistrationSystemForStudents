@@ -26,10 +26,10 @@ if(isset($_POST["query"])) {
 
 	$query = "
 		SELECT * FROM class 
-		WHERE name LIKE '%".$search."%'
+		WHERE (name LIKE '%".$search."%'
 		OR departament LIKE '%".$search."%'
 		OR course LIKE '%".$search."%'
-		OR semester LIKE '%".$search."%' 
+		OR semester LIKE '%".$search."%') 
 		AND class_id LIKE (
 			SELECT class_id FROM class_registration 
 			WHERE student_id = '".$student_id."'
