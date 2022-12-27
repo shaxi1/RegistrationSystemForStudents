@@ -32,3 +32,7 @@ PHOTOS HERE
 * HTML and CSS
 * PHP
 * Ajax, JS, JQuery
+
+# ⚠️Please Note
+
+This project was created for a university course called web-based database applications. Copying it will most likely result in failing the course.
