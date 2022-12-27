@@ -33,6 +33,7 @@ $message = getMessage();
 	<link rel="stylesheet" href="css/search_client.css">
 	<link rel="stylesheet" href="css/submit_button_search.css"> 
 	<link rel="stylesheet" href="css/cart_client.css">
+	<link rel="stylesheet" href="css/msg_section.css">
 </head>
 
 <body>
@@ -66,7 +67,7 @@ $message = getMessage();
 			</div>
 
 			<ul class="sidebar-list">
-				<li class="sidebar-list-item" onclick="closeAllSections()">
+				<li class="sidebar-list-item" onclick="openMessageSection()">
 					<span class="material-icons-outlined">dashboard</span> Dashboard
 				</li>
 				<li class="sidebar-list-item" onclick="openSearchSection()">

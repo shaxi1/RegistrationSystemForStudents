@@ -8,23 +8,7 @@ var cartOpen = false;
 
 var messageSection_ArrayOfElements = document.getElementsByClassName('message-section');
 var messageSection_ArrayLength = messageSection_ArrayOfElements.length;
-var messageSectionOpen = false;
-
-function openMessageSection() {
-    if (!messageSectionOpen) {
-        for (var i = 0; i < messageSection_ArrayLength; i++)
-            messageSection_ArrayOfElements[i].style.display = 'inline';
-        messageSectionOpen = true;
-    }
-}
-
-function closeMessageSection() {
-    if (messageSectionOpen) {
-        for (var i = 0; i < messageSection_ArrayLength; i++)
-            messageSection_ArrayOfElements[i].style.display = "none";
-        messageSectionOpen = false;
-    }
-}
+var messageSectionOpen = true;
 
 function openSearchSection() {
     if (!searchOpen) {
@@ -64,9 +48,28 @@ function closeCartSection() {
     }
 }
 
+function openMessageSection() {
+    if (!messageSectionOpen) {
+        for (var i = 0; i < messageSection_ArrayLength; i++)
+            messageSection_ArrayOfElements[i].style.display = 'inline';
+        messageSectionOpen = true;
+
+        closeSearchSection();
+        closeCartSection();
+    }
+}
+
+function closeMessageSection() {
+    if (messageSectionOpen) {
+        for (var i = 0; i < messageSection_ArrayLength; i++)
+            messageSection_ArrayOfElements[i].style.display = "none";
+        messageSectionOpen = false;
+    }
+}
+
 function closeAllSections() {
     closeSearchSection();
     closeCartSection();
 
-    openMessageSection();
+    closeMessageSection();
 }
