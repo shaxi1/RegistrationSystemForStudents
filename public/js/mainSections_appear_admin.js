@@ -94,6 +94,13 @@ function closeSearchClassesSection() {
     }
 }
 
+function closeAllSections() {
+    closeClassSection();
+    closeLecturerSection();
+    closeSearchLecturersSection();
+    closeSearchClassesSection();
+}
+
 // function showAddClassOk() {
 //     setTimeout(function() {
 //         $('add-class-ok').fadeOut('fast');
