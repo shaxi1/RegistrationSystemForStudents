@@ -22,7 +22,7 @@ session_start();
 
     <link rel="stylesheet" href="css/client_dashboard.css">
     <link rel="stylesheet" href="css/search_client.css">
-    <link rel="stylesheet" href="css/submit_button.css"> 
+    <link rel="stylesheet" href="css/submit_button_search.css"> 
 </head>
 
 <body>
