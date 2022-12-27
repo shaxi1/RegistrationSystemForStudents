@@ -2,12 +2,10 @@
 require '../phpdatabase/get_student_details.php';
 session_start();
 
-// TODO: potennially add to other files
 if (!isset($_SESSION['loggedin'])) {
 	header('Location: index.html');
 	exit;
 }
-// TODO: end
 
 $studentClass = new Database_Student_Details($_SESSION['name']);
 /* get details */
