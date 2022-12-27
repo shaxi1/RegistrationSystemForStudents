@@ -80,7 +80,7 @@ session_start();
                 <div class="form-group">
                     <div class="input-group">
                         <span class="input-group-addon">Szukaj</span>
-                        <input type="text" name="search_text" id="search_text" placeholder="Nazwa przedmiotu lub numer semestru" class="form-control"/>
+                        <input type="text" name="search_text" id="search_text" placeholder="Nazwa przedmiotu, kierunku, wydziału lub numer semestru" class="form-control"/>
                     </div>
                 </div>
                 <br/>

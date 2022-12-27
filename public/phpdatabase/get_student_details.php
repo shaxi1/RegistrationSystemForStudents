@@ -134,7 +134,7 @@ class Database_Student_Details {
 	}
 
 	public function enrollToClass() {
-
+		
 	}
 
 	public function dropClass() {
