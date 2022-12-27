@@ -61,7 +61,7 @@ if (mysqli_num_rows($result) > 0) {
 			<td><div><input type="text" name="'.$semester_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["semester"].'"></div></td>
 			<td>
 				<div>
-					<form id="'.$form_tr.'" method="get" action="database/enroll_to_class.php">
+					<form id="'.$form_tr.'" method="post" action="database/enroll_to_class.php">
 						<input type="submit" name="'.$submit_tr.'" value="Zapisz" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#f1c50e\'">
 					</form>
 				</div>
