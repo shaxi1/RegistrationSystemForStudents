@@ -59,6 +59,9 @@ if (mysqli_num_rows($result) > 0) {
 			<td><div><input type="text" name="'.$departament_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["departament"].'"></div></td>
 			<td><div><input type="text" name="'.$course_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["course"].'"></div></td>
 			<td><div><input type="text" name="'.$semester_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["semester"].'"></div></td>
+			<input type="hidden" name="class_id" form="'.$form_tr.'" value="'.$row["class_id"].'">
+			<input type="hidden" name="form_index" form="'.$form_tr.'" value="'.$i.'">
+			<input type="hidden" name="username" form="'.$form_tr.'" value="'.$_SESSION['name'].'">
 			<td>
 				<div>
 					<form id="'.$form_tr.'" method="post" action="phpdatabase/enroll_to_class.php">
