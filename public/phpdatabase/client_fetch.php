@@ -63,9 +63,9 @@ if (mysqli_num_rows($result) > 0) {
 		$studentClass = new Database_Student_Details($_SESSION['name']);
 		$studentID = $studentClass->returnStudentID();
 		if ($studentClass->checkIfEnrolled($studentID, $row["class_id"])) {
-			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Wypisz"></div></td></tr>';
+			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Wypisz" style="background-color:#cc3c43;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#cc3c43\'"></div></td></tr>';
 		} else {
-			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Zapisz"></div></td></tr>';
+			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Zapisz" style="background-color:#93D976;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#93D976\'"></div></td></tr>';
 		}
 
 		$i++;
