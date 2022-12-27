@@ -14,6 +14,10 @@ var searchClasses_ArrayOfElements = document.getElementsByClassName('listClasses
 var searchClasses_ArrayLength = searchClasses_ArrayOfElements.length;
 var searchClassesOpen = false;
 
+var msgSection_ArrayOfElements = document.getElementsByClassName('msg-section');
+var msgSection_ArrayLength = msgSection_ArrayOfElements.length;
+var msgSectionOpen = false;
+
 function openClassSection() {
     if (!addClassOpen) {
         for (var i = 0; i < addClass_ArrayLength; i++)
@@ -23,6 +27,7 @@ function openClassSection() {
         closeLecturerSection();
         closeSearchLecturersSection();
         closeSearchClassesSection();
+        closeMsgSection();
     }
 }
 
@@ -43,6 +48,7 @@ function openLecturerSection() {
         closeClassSection();
         closeSearchLecturersSection();
         closeSearchClassesSection();
+        closeMsgSection();
     }
 }
 
@@ -63,6 +69,7 @@ function openSearchLecturersSection() {
         closeClassSection();
         closeLecturerSection();
         closeSearchClassesSection();
+        closeMsgSection();
     }
 }
 
@@ -83,6 +90,7 @@ function openSearchClassesSection() {
         closeClassSection();
         closeLecturerSection();
         closeSearchLecturersSection();
+        closeMsgSection();
     }
 }
 
@@ -99,6 +107,28 @@ function closeAllSections() {
     closeLecturerSection();
     closeSearchLecturersSection();
     closeSearchClassesSection();
+    closeMsgSection();
+}
+
+function openMsgSection() {
+    if (!msgSectionOpen) {
+        for (var i = 0; i < msgSection_ArrayLength; i++)
+            msgSection_ArrayOfElements[i].style.display = 'inline';
+        msgSectionOpen = true;
+
+        closeClassSection();
+        closeLecturerSection();
+        closeSearchLecturersSection();
+        closeSearchClassesSection();
+    }
+}
+
+function closeMsgSection() {
+    if (msgSectionOpen) {
+        for (var i = 0; i < msgSection_ArrayLength; i++)
+            msgSection_ArrayOfElements[i].style.display = "none";
+        msgSectionOpen = false;
+    }
 }
 
 // function showAddClassOk() {

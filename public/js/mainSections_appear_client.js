@@ -6,6 +6,10 @@ var cart_ArrayOfElements = document.getElementsByClassName('cart-section');
 var cart_ArrayLength = cart_ArrayOfElements.length;
 var cartOpen = false;
 
+var messageSection_ArrayOfElements = document.getElementsByClassName('message-section');
+var messageSection_ArrayLength = messageSection_ArrayOfElements.length;
+var messageSectionOpen = true;
+
 function openSearchSection() {
     if (!searchOpen) {
         for (var i = 0; i < search_ArrayLength; i++)
@@ -13,6 +17,7 @@ function openSearchSection() {
         searchOpen = true;
 
         closeCartSection();
+        closeMessageSection();
     }
 }
 
@@ -31,6 +36,7 @@ function openCartSection() {
         cartOpen = true;
 
         closeSearchSection();
+        closeMessageSection();
     }
 }
 
@@ -42,7 +48,28 @@ function closeCartSection() {
     }
 }
 
+function openMessageSection() {
+    if (!messageSectionOpen) {
+        for (var i = 0; i < messageSection_ArrayLength; i++)
+            messageSection_ArrayOfElements[i].style.display = 'inline';
+        messageSectionOpen = true;
+
+        closeSearchSection();
+        closeCartSection();
+    }
+}
+
+function closeMessageSection() {
+    if (messageSectionOpen) {
+        for (var i = 0; i < messageSection_ArrayLength; i++)
+            messageSection_ArrayOfElements[i].style.display = "none";
+        messageSectionOpen = false;
+    }
+}
+
 function closeAllSections() {
     closeSearchSection();
     closeCartSection();
+
+    closeMessageSection();
 }
