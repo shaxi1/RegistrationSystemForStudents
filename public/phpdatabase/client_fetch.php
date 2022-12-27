@@ -1,5 +1,7 @@
 <!-- fetch data for client search section -->
 <?php
+require 'get_student_details.php';
+
 session_start();
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
@@ -45,32 +47,26 @@ if (mysqli_num_rows($result) > 0) {
 
 	$i = 0;
 	while ($row = mysqli_fetch_array($result)) {
-		$className_tr = 'class_name'.$i;
-		$departament_tr = 'departament'.$i;
-		$course_tr = 'course'.$i;
-		$semester_tr = 'semester'.$i;
-
 		$form_tr = 'form'.$i;
 		$submit_tr = 'submit'.$i;
-		
+		// TODO: display enroll or drop button depending on if user is enrolled to class
 		$return .= '
 		<tr>
-			<td><div><input type="text" name="'.$className_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["name"].'"></div></td>
-			<td><div><input type="text" name="'.$departament_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["departament"].'"></div></td>
-			<td><div><input type="text" name="'.$course_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["course"].'"></div></td>
-			<td><div><input type="text" name="'.$semester_tr.'" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["semester"].'"></div></td>
+			<td><div><input type="text" name="class-name" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["name"].'"></div></td>
+			<td><div><input type="text" name="departament_tr" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["departament"].'"></div></td>
+			<td><div><input type="text" name="course" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["course"].'"></div></td>
+			<td><div><input type="text" name="semester" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["semester"].'"></div></td>
 			<input type="hidden" name="class_id" form="'.$form_tr.'" value="'.$row["class_id"].'">
-			<input type="hidden" name="form_index" form="'.$form_tr.'" value="'.$i.'">
 			<input type="hidden" name="username" form="'.$form_tr.'" value="'.$_SESSION['name'].'">
-			<td>
-				<div>
-					<form id="'.$form_tr.'" method="post" action="phpdatabase/enroll_to_class.php">
-						<input type="submit" name="'.$submit_tr.'" value="Zapisz" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#f1c50e\'">
-					</form>
-				</div>
-			</td>
-		</tr>
 		';
+
+		$studentClass = new Database_Student_Details($_SESSION['name']);
+		$studentID = $studentClass->returnStudentID();
+		if ($studentClass->checkIfEnrolled($studentID, $row["class_id"])) {
+			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Wypisz"></div></td></tr>';
+		} else {
+			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Zapisz"></div></td></tr>';
+		}
 
 		$i++;
 	}
