@@ -17,12 +17,12 @@ session_start();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
     <!-- Search Section -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
 
     <link rel="stylesheet" href="css/client_dashboard.css">
     <link rel="stylesheet" href="css/search_client.css">
+    <link rel="stylesheet" href="css/submit_button.css"> 
 </head>
 
 <body>
@@ -95,6 +95,7 @@ session_start();
     <script src="js/menu_dashboard.js"></script>
     <script src="js/profilePage_redirect_student.js"></script>
     <script src="js/mainSections_appear_client.js"></script>
+    <script src="js/clientSearchSection_load_data.js"></script>
     <script src="js/logout.js"></script>
 </body>
 
