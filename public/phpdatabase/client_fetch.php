@@ -1,6 +1,7 @@
 <!-- fetch data for client search section -->
 <?php
 require 'get_student_details.php';
+require 'get_class_details.php';
 
 session_start();
 $DATABASE_HOST = 'localhost';
@@ -41,6 +42,8 @@ if (mysqli_num_rows($result) > 0) {
 			<th>Wydział</th>
 			<th>Kierunek</th>
 			<th>Semestr</th>
+			<th>Prowadzący</th>
+			<th>Pierwsze Zajęcia i Sala</th>
 			<th></th>
 		</tr>
 	';
@@ -50,13 +53,19 @@ if (mysqli_num_rows($result) > 0) {
 	while ($row = mysqli_fetch_array($result)) {
 		$form_tr = 'form'.$i;
 		$submit_tr = 'submit'.$i;
-		// TODO: display enroll or drop button depending on if user is enrolled to class
+		
+		$classDetails = new Database_Class_Details($row["class_id"]);
+		$lecturer_fullname = $classDetails->getClassLecturerFullName();
+		$room_date = $classDetails->getClassroomAndDate();
+
 		$return .= '
 		<tr>
 			<td><div><input type="text" name="class-name" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["name"].'"></div></td>
 			<td><div><input type="text" name="departament_tr" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["departament"].'"></div></td>
 			<td><div><input type="text" name="course" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["course"].'"></div></td>
 			<td><div><input type="text" name="semester" form="'.$form_tr.'" readonly="readonly" style="background: transparent; border: none; outline: none;" value="'.$row["semester"].'"></div></td>
+			<td>'.$lecturer_fullname.'</td>
+			<td>'.$room_date.'</td>
 			<input type="hidden" name="class_id" form="'.$form_tr.'" value="'.$row["class_id"].'">
 			<input type="hidden" name="username" form="'.$form_tr.'" value="'.$_SESSION['name'].'">
 		';
@@ -82,6 +91,7 @@ if (mysqli_num_rows($result) > 0) {
 					</tr>';
 		}
 
+		unset($classDetails);
 		$i++;
 	}
 
