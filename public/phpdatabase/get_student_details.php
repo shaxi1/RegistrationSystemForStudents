@@ -133,12 +133,20 @@ class Database_Student_Details {
 		return false;
 	}
 
-	public function enrollToClass() {
-		
+	public function enrollToClass($class_id) {
+		$stmt = self::$sql_classes->prepare('INSERT INTO class_registration (class_id, student_id) VALUES (?, ?)');
+		$stmt->bind_param('ii', $class_id, self::$student_id);
+		$stmt->execute();
+
+		$stmt->close();
 	}
 
-	public function dropClass() {
+	public function dropClass($class_id) {
+		$stmt = self::$sql_classes->prepare('DELETE FROM class_registration WHERE student_id = ? AND class_id = ?');
+		$stmt->bind_param('ii', self::$student_id, $class_id);
+		$stmt->execute();
 
+		$stmt->close();
 	}
 
 }
