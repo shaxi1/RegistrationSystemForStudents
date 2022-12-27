@@ -23,6 +23,7 @@ session_start();
     <link rel="stylesheet" href="css/admin_dashboard.css">
     <link rel="stylesheet" href="css/submit_button.css">
     <link rel="stylesheet" href="css/listLecturers_admin.css">
+    <link rel="stylesheet" href="css/listClasses_admin.css">
 </head>
 
 <body>
@@ -68,6 +69,8 @@ session_start();
                 <li class="sidebar-list-item" onclick="openClassSection()">
                     <span class="material-icons-outlined">note_add</span> Dodaj Zajęcia
                 </li>
+                <li class="sidebar-list-item" onclick="openSearchClassesSection()">
+                    <span class="material-icons-outlined">date_range</span> Wszystkie Zajęcia
                 <li class="sidebar-list-item">
                     <span class="material-icons-outlined">stacked_bar_chart</span> Podsumowanie
                 </li>
@@ -202,6 +205,19 @@ session_start();
                 <div id="result_lecturer"></div>
             </div>
 
+            <div class="listClasses-section">
+                <br/>
+                <h2 align="center">Przedmioty</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Szukaj</span>
+                        <input type="text" name="class_search" id="class_search" placeholder="Nazwa, wydział, kierunek lub numer semestru" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result_class"></div>
+            </div>
+
         </main>
 
     </div>
@@ -211,6 +227,7 @@ session_start();
     <script src="js/mainSections_appear_admin.js"></script>
     <script src="js/profilePage_redirect.js"></script>
     <script src="js/adminSearchLecturer.js"></script>
+    <script src="js/adminSearchClass.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

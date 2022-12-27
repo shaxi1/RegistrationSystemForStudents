@@ -10,6 +10,10 @@ var searchLecturers_ArrayOfElements = document.getElementsByClassName('listLectu
 var searchLecturers_ArrayLength = searchLecturers_ArrayOfElements.length;
 var searchLecturersOpen = false;
 
+var searchClasses_ArrayOfElements = document.getElementsByClassName('listClasses-section');
+var searchClasses_ArrayLength = searchClasses_ArrayOfElements.length;
+var searchClassesOpen = false;
+
 function openClassSection() {
     if (!addClassOpen) {
         for (var i = 0; i < addClass_ArrayLength; i++)
@@ -18,6 +22,7 @@ function openClassSection() {
         
         closeLecturerSection();
         closeSearchLecturersSection();
+        closeSearchClassesSection();
     }
 }
 
@@ -37,6 +42,7 @@ function openLecturerSection() {
 
         closeClassSection();
         closeSearchLecturersSection();
+        closeSearchClassesSection();
     }
 }
 
@@ -56,6 +62,7 @@ function openSearchLecturersSection() {
 
         closeClassSection();
         closeLecturerSection();
+        closeSearchClassesSection();
     }
 }
 
@@ -64,6 +71,26 @@ function closeSearchLecturersSection() {
         for (var i = 0; i < searchLecturers_ArrayLength; i++)
             searchLecturers_ArrayOfElements[i].style.display = "none";
         searchLecturersOpen = false;
+    }
+}
+
+function openSearchClassesSection() {
+    if (!searchClassesOpen) {
+        for (var i = 0; i < searchClasses_ArrayLength; i++)
+            searchClasses_ArrayOfElements[i].style.display = 'inline';
+        searchClassesOpen = true;
+
+        closeClassSection();
+        closeLecturerSection();
+        closeSearchLecturersSection();
+    }
+}
+
+function closeSearchClassesSection() {
+    if (searchClassesOpen) {
+        for (var i = 0; i < searchClasses_ArrayLength; i++)
+            searchClasses_ArrayOfElements[i].style.display = "none";
+        searchClassesOpen = false;
     }
 }
 
