@@ -35,7 +35,7 @@ session_start();
             </div>
 
             <div class="header-left">
-                <span class="material-icons-outlined">search</span>
+                <!-- <span class="material-icons-outlined">search</span> -->
             </div>
             <div class="header-right">
                 <div class="logout-icon" onclick="logout()">
