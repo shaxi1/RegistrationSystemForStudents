@@ -55,7 +55,7 @@ session_start();
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
                 <li class="sidebar-list-item" onclick="openLecturerSection()">
-                    <span class="material-icons-outlined">engineering</span> Dodaj Wykładowce
+                    <span class="material-icons-outlined">engineering</span> Dodaj Wykładowcę
                 </li>
                 <li class="sidebar-list-item" onclick="openClassSection()">
                     <span class="material-icons-outlined">note_add</span> Dodaj Zajęcia
