@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: index.html');
+	exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +30,7 @@ session_start();
     <link rel="stylesheet" href="css/submit_button.css">
     <link rel="stylesheet" href="css/listLecturers_admin.css">
     <link rel="stylesheet" href="css/listClasses_admin.css">
+    <link rel="stylesheet" href="css/add_msg.css">
 </head>
 
 <body>
@@ -71,8 +78,8 @@ session_start();
                 </li>
                 <li class="sidebar-list-item" onclick="openSearchClassesSection()">
                     <span class="material-icons-outlined">date_range</span> Wszystkie Zajęcia
-                <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">stacked_bar_chart</span> Podsumowanie
+                <li class="sidebar-list-item" onclick="openMsgSection()">
+                    <span class="material-icons-outlined">chat</span> Dodaj Wiadomość
                 </li>
             </ul>
 
@@ -190,6 +197,7 @@ session_start();
                     </div>
 
                     <input type="submit" value="Dodaj" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
+                </form>
             </div>
 
             <div class="listLecturers-section">
@@ -216,6 +224,18 @@ session_start();
                 </div>
                 <br/>
                 <div id="result_class"></div>
+            </div>
+
+            <div class="msg-section">
+                <form action="phpdatabase/add_msg.php" method="post">
+                    <div class="txt_field">
+                        <input type="text" name="msg" required>
+                        <span></span>
+                        <label>Wiadomość do Studentów</label>
+                    </div>
+                    </br></br>
+                    <input type="submit" value="Wyślij" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
+                </form>
             </div>
 
         </main>
