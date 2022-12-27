@@ -23,6 +23,7 @@ session_start();
     <link rel="stylesheet" href="css/client_dashboard.css">
     <link rel="stylesheet" href="css/search_client.css">
     <link rel="stylesheet" href="css/submit_button_search.css"> 
+    <link rel="stylesheet" href="css/cart_client.css">
 </head>
 
 <body>
@@ -62,7 +63,7 @@ session_start();
                 <li class="sidebar-list-item" onclick="openSearchSection()">
                     <span class="material-icons-outlined">note_add</span> Zapisz na zajęcia
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" onclick="openCartSection()">
                     <span class="material-icons-outlined">stacked_bar_chart</span> Moje zajęcia (koszyk)
                 </li>
             </ul>
@@ -87,6 +88,19 @@ session_start();
                 <div id="result"></div>
             </div>
 
+            <div class="cart-section">
+                <br/>
+                <h2 align="center">Moje zajęcia</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Szukaj</span>
+                        <input type="text" name="cart_search" id="cart_search" placeholder="Nazwa przedmiotu, kierunku, wydziału lub numer semestru" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result_cart"></div>
+            </div>
+
         </main>
 
     </div>
@@ -96,6 +110,7 @@ session_start();
     <script src="js/profilePage_redirect_student.js"></script>
     <script src="js/mainSections_appear_client.js"></script>
     <script src="js/clientSearchSection_load_data.js"></script>
+    <script src="js/clientSearchCart.js"></script>
     <script src="js/logout.js"></script>
 </body>
 
