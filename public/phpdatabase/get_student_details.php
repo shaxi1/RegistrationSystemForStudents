@@ -37,6 +37,7 @@ class Database_Student_Details {
 		self::$sql_login->close();
 	}
 
+
 	private function connectToDatabase() {
 		self::$sql_classes = mysqli_connect(self::$DATABASE_HOST, self::$DATABASE_USER, self::$DATABASE_PASS, self::$DATABASE_NAME);
 		if (mysqli_connect_errno()) {
@@ -46,6 +47,10 @@ class Database_Student_Details {
 	
 	private function disconnectFromDatabase() {
 		self::$sql_classes->close();
+	}
+
+	public function returnStudentID() {
+		return self::$student_id;
 	}
 
 	public function getStudentName() {
@@ -112,6 +117,36 @@ class Database_Student_Details {
 
 		$studentDetails = $studentName . ' ' . $studentSurname . ' ' . $studentAddress . ' ' . $studentEmail . ' ' . $studentPhone;
 		return $studentDetails;
+	}
+
+	public function checkIfEnrolled($class_id) {
+		$query = sprintf("SELECT COUNT(*) as count FROM class_registration WHERE class_id = '%s' AND student_id = '%s'",
+			mysqli_real_escape_string(self::$sql_classes, self::$student_id),
+			mysqli_real_escape_string(self::$sql_classes, $class_id));
+		
+		$result = mysqli_query(self::$sql_classes, $query);
+		$row = mysqli_fetch_assoc($result);
+		$count = $row['count'];
+
+		if ($count > 0)
+			return true;
+		return false;
+	}
+
+	public function enrollToClass($class_id) {
+		$stmt = self::$sql_classes->prepare('INSERT INTO class_registration (class_id, student_id) VALUES (?, ?)');
+		$stmt->bind_param('ii', $class_id, self::$student_id);
+		$stmt->execute();
+
+		$stmt->close();
+	}
+
+	public function dropClass($class_id) {
+		$stmt = self::$sql_classes->prepare('DELETE FROM class_registration WHERE student_id = ? AND class_id = ?');
+		$stmt->bind_param('ii', self::$student_id, $class_id);
+		$stmt->execute();
+
+		$stmt->close();
 	}
 
 }

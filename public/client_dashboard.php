@@ -16,7 +16,14 @@ session_start();
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
+    <!-- Search Section -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="css/client_dashboard.css">
+    <link rel="stylesheet" href="css/search_client.css">
+    <link rel="stylesheet" href="css/submit_button_search.css"> 
+    <link rel="stylesheet" href="css/cart_client.css">
 </head>
 
 <body>
@@ -29,7 +36,7 @@ session_start();
             </div>
 
             <div class="header-left">
-                <span class="material-icons-outlined">search</span>
+                <!-- <span class="material-icons-outlined">search</span> -->
             </div>
             <div class="header-right">
                 <div class="logout-icon" onclick="logout()">
@@ -53,11 +60,11 @@ session_start();
                 <li class="sidebar-list-item">
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
-                <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">note_add</span> Enroll to class
+                <li class="sidebar-list-item" onclick="openSearchSection()">
+                    <span class="material-icons-outlined">note_add</span> Zapisz na zajęcia
                 </li>
-                <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">stacked_bar_chart</span> Summary
+                <li class="sidebar-list-item" onclick="openCartSection()">
+                    <span class="material-icons-outlined">stacked_bar_chart</span> Moje zajęcia (koszyk)
                 </li>
             </ul>
             
@@ -68,6 +75,32 @@ session_start();
                 <p class="font-weight-bold">DASHBOARD</p>
             </div>
 
+            <div class="search-section">
+                <br/>
+                <h2 align="center">Wyszukaj i zapisz na zajęcia</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Szukaj</span>
+                        <input type="text" name="search_text" id="search_text" placeholder="Nazwa przedmiotu, kierunku, wydziału lub numer semestru" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result"></div>
+            </div>
+
+            <div class="cart-section">
+                <br/>
+                <h2 align="center">Moje zajęcia</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Szukaj</span>
+                        <input type="text" name="cart_search" id="cart_search" placeholder="Nazwa przedmiotu, kierunku, wydziału lub numer semestru" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result_cart"></div>
+            </div>
+
         </main>
 
     </div>
@@ -75,6 +108,9 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu_dashboard.js"></script>
     <script src="js/profilePage_redirect_student.js"></script>
+    <script src="js/mainSections_appear_client.js"></script>
+    <script src="js/clientSearchSection_load_data.js"></script>
+    <script src="js/clientSearchCart.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

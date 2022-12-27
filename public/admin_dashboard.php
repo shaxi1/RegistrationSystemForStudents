@@ -30,7 +30,7 @@ session_start();
             </div>
 
             <div class="header-left">
-                <span class="material-icons-outlined">search</span>
+                <!-- <span class="material-icons-outlined">search</span> -->
             </div>
             <div class="header-right">
                 <div class="logout-icon" onclick="logout()">
@@ -55,13 +55,13 @@ session_start();
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
                 <li class="sidebar-list-item" onclick="openLecturerSection()">
-                    <span class="material-icons-outlined">engineering</span> Add Lecturer
+                    <span class="material-icons-outlined">engineering</span> Dodaj Wykładowcę
                 </li>
                 <li class="sidebar-list-item" onclick="openClassSection()">
-                    <span class="material-icons-outlined">note_add</span> Add Class
+                    <span class="material-icons-outlined">note_add</span> Dodaj Zajęcia
                 </li>
                 <li class="sidebar-list-item">
-                    <span class="material-icons-outlined">stacked_bar_chart</span> Summary
+                    <span class="material-icons-outlined">stacked_bar_chart</span> Podsumowanie
                 </li>
             </ul>
 
