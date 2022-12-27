@@ -16,8 +16,13 @@ session_start();
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
+    <!-- Search Section -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="css/admin_dashboard.css">
     <link rel="stylesheet" href="css/submit_button.css">
+    <link rel="stylesheet" href="css/listLecturers_admin.css">
 </head>
 
 <body>
@@ -56,6 +61,9 @@ session_start();
                 </li>
                 <li class="sidebar-list-item" onclick="openLecturerSection()">
                     <span class="material-icons-outlined">engineering</span> Dodaj Wykładowcę
+                </li>
+                <li class="sidebar-list-item" onclick="openSearchLecturersSection()">
+                    <span class="material-icons-outlined">engineering</span> Wszyscy Wykładowcy
                 </li>
                 <li class="sidebar-list-item" onclick="openClassSection()">
                     <span class="material-icons-outlined">note_add</span> Dodaj Zajęcia
@@ -181,6 +189,19 @@ session_start();
                     <input type="submit" value="Dodaj" onMouseOver="this.style.backgroundColor='#2691d9'" onMouseOut="this.style.backgroundColor='#f1c50e'">
             </div>
 
+            <div class="listLecturers-section">
+                <br/>
+                <h2 align="center">Wykładowcy</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Szukaj</span>
+                        <input type="text" name="lecturer_search" id="lecturer_search" placeholder="Imię, nazwisko lub tytuł" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result_lecturer"></div>
+            </div>
+
         </main>
 
     </div>
@@ -189,6 +210,7 @@ session_start();
     <script src="js/menu_dashboard.js"></script>
     <script src="js/mainSections_appear_admin.js"></script>
     <script src="js/profilePage_redirect.js"></script>
+    <script src="js/adminSearchLecturer.js"></script>
     <script src="js/logout.js"></script>
 </body>
 
