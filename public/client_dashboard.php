@@ -75,7 +75,7 @@ session_start();
             </div>
 
             <div class="search-section">
-            <br />
+                <br/>
                 <h2 align="center">Wyszukaj i zapisz na zajęcia</h2><br/>
                 <div class="form-group">
                     <div class="input-group">
