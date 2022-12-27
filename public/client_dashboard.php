@@ -57,7 +57,7 @@ session_start();
             </div>
 
             <ul class="sidebar-list">
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" onclick="closeAllSections()">
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
                 <li class="sidebar-list-item" onclick="openSearchSection()">

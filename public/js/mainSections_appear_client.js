@@ -41,3 +41,8 @@ function closeCartSection() {
         cartOpen = false;
     }
 }
+
+function closeAllSections() {
+    closeSearchSection();
+    closeCartSection();
+}
