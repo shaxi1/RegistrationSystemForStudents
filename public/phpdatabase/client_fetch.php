@@ -62,10 +62,24 @@ if (mysqli_num_rows($result) > 0) {
 		';
 
 		$studentID = $studentClass->returnStudentID();
-		if ($studentClass->checkIfEnrolled($studentID, $row["class_id"])) {
-			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Wypisz" style="background-color:#cc3c43;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#cc3c43\'"></div></td></tr>';
+		if ($studentClass->checkIfEnrolled($row["class_id"])) {
+			$return .= '<td>
+							<div>
+								<form id="'.$form_tr.'" action="phpdatabase/enroll_to_class.php" method="post">
+									<input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Wypisz" style="background-color:#cc3c43;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#cc3c43\'">
+								</form>
+							</div>
+						</td>
+					</tr>';
 		} else {
-			$return .= '<td><div><input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Zapisz" style="background-color:#93D976;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#93D976\'"></div></td></tr>';
+			$return .= '<td>
+							<div>
+								<form id="'.$form_tr.'" action="phpdatabase/enroll_to_class.php" method="post">
+									<input type="submit" name="'.$submit_tr.'" form="'.$form_tr.'" value="Zapisz" style="background-color:#93D976;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#93D976\'">
+								</form>
+							</div>
+						</td>
+					</tr>';
 		}
 
 		$i++;

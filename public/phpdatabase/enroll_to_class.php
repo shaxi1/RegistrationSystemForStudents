@@ -17,7 +17,7 @@ $_POST = array_map("htmlspecialchars", $_POST);
 $studentClass = new Database_Student_Details($_POST['username']);
 $studentID = $studentClass->returnStudentID();
 
-if (!$studentClass->checkIfEnrolled($studentID, $_POST['class_id'])) {
+if (!$studentClass->checkIfEnrolled($_POST['class_id'])) {
 	$studentClass->enrollToClass($studentID, $_POST['class_id']);
 } else {
 	$studentClass->dropClass($studentID, $_POST['class_id']);
