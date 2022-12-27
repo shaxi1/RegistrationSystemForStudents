@@ -4,7 +4,7 @@ session_start();
 
 // TODO: potennially add to other files
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: index.php');
+	header('Location: index.html');
 	exit;
 }
 // TODO: end
