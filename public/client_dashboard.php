@@ -16,7 +16,13 @@ session_start();
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
+    <!-- Search Section -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
     <link rel="stylesheet" href="css/client_dashboard.css">
+    <link rel="stylesheet" href="css/search_client.css">
 </head>
 
 <body>
@@ -53,7 +59,7 @@ session_start();
                 <li class="sidebar-list-item">
                     <span class="material-icons-outlined">dashboard</span> Dashboard
                 </li>
-                <li class="sidebar-list-item">
+                <li class="sidebar-list-item" onclick="openSearchSection()">
                     <span class="material-icons-outlined">note_add</span> Zapisz na zajęcia
                 </li>
                 <li class="sidebar-list-item">
@@ -68,6 +74,19 @@ session_start();
                 <p class="font-weight-bold">DASHBOARD</p>
             </div>
 
+            <div class="search-section">
+            <br />
+                <h2 align="center">Wyszukaj i zapisz na zajęcia</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Search</span>
+                        <input type="text" name="search_text" id="search_text" placeholder="Nazwa przedmiotu lub numer semestru" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result"></div>
+            </div>
+
         </main>
 
     </div>
@@ -75,6 +94,7 @@ session_start();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="js/menu_dashboard.js"></script>
     <script src="js/profilePage_redirect_student.js"></script>
+    <script src="js/mainSections_appear_client.js"></script>
     <script src="js/logout.js"></script>
 </body>
 
