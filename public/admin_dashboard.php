@@ -31,6 +31,7 @@ if (!isset($_SESSION['loggedin'])) {
     <link rel="stylesheet" href="css/listLecturers_admin.css">
     <link rel="stylesheet" href="css/listClasses_admin.css">
     <link rel="stylesheet" href="css/add_msg.css">
+    <link rel="stylesheet" href="css/drop_class_admin.css">
 </head>
 
 <body>
@@ -80,6 +81,9 @@ if (!isset($_SESSION['loggedin'])) {
                     <span class="material-icons-outlined">date_range</span> Wszystkie Zajęcia
                 <li class="sidebar-list-item" onclick="openMsgSection()">
                     <span class="material-icons-outlined">chat</span> Dodaj Wiadomość
+                </li>
+                <li class="sidebar-list-item" onclick="openDropClassSection()">
+                    <span class="material-icons-outlined">person_remove</span> Wypisz Stud. (dwuklik)
                 </li>
             </ul>
 
@@ -238,6 +242,19 @@ if (!isset($_SESSION['loggedin'])) {
                 </form>
             </div>
 
+            <div class="drop_class-section">
+                <br/>
+                <h2 align="center">Wypisz Studenta z Zajęć</h2><br/>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon">Szukaj</span>
+                        <input type="text" name="drop_class_search" id="drop_class_search" placeholder="ID przedmiotu, studenta" class="form-control"/>
+                    </div>
+                </div>
+                <br/>
+                <div id="result_drop_class"></div>
+            </div>
+
         </main>
 
     </div>
@@ -248,6 +265,7 @@ if (!isset($_SESSION['loggedin'])) {
     <script src="js/profilePage_redirect.js"></script>
     <script src="js/adminSearchLecturer.js"></script>
     <script src="js/adminSearchClass.js"></script>
+    <script src="js/adminDropClass.js"></script>
     <script src="js/logout.js"></script>
 </body>
 

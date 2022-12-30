@@ -18,6 +18,11 @@ var msgSection_ArrayOfElements = document.getElementsByClassName('msg-section');
 var msgSection_ArrayLength = msgSection_ArrayOfElements.length;
 var msgSectionOpen = false;
 
+var dropClass_ArrayOfElements = document.getElementsByClassName('drop_class-section');
+var dropClass_ArrayLength = dropClass_ArrayOfElements.length;
+var dropClassOpen1 = false;
+var dropClassOpen2 = false;
+
 function openClassSection() {
     if (!addClassOpen) {
         for (var i = 0; i < addClass_ArrayLength; i++)
@@ -28,6 +33,7 @@ function openClassSection() {
         closeSearchLecturersSection();
         closeSearchClassesSection();
         closeMsgSection();
+        closeDropClassSection();
     }
 }
 
@@ -49,6 +55,7 @@ function openLecturerSection() {
         closeSearchLecturersSection();
         closeSearchClassesSection();
         closeMsgSection();
+        closeDropClassSection();
     }
 }
 
@@ -70,6 +77,7 @@ function openSearchLecturersSection() {
         closeLecturerSection();
         closeSearchClassesSection();
         closeMsgSection();
+        closeDropClassSection();
     }
 }
 
@@ -91,6 +99,7 @@ function openSearchClassesSection() {
         closeLecturerSection();
         closeSearchLecturersSection();
         closeMsgSection();
+        closeDropClassSection();
     }
 }
 
@@ -108,6 +117,7 @@ function closeAllSections() {
     closeSearchLecturersSection();
     closeSearchClassesSection();
     closeMsgSection();
+    closeDropClassSection();
 }
 
 function openMsgSection() {
@@ -120,6 +130,7 @@ function openMsgSection() {
         closeLecturerSection();
         closeSearchLecturersSection();
         closeSearchClassesSection();
+        closeDropClassSection();
     }
 }
 
@@ -128,6 +139,33 @@ function closeMsgSection() {
         for (var i = 0; i < msgSection_ArrayLength; i++)
             msgSection_ArrayOfElements[i].style.display = "none";
         msgSectionOpen = false;
+    }
+}
+
+function openDropClassSection() {
+    if (!dropClassOpen1) {
+        dropClassOpen1 = true;
+        return;
+    }
+    if (dropClassOpen1) {
+        for (var i = 0; i < dropClass_ArrayLength; i++)
+            dropClass_ArrayOfElements[i].style.display = 'inline';
+        dropClassOpen2 = true;
+
+        closeClassSection();
+        closeLecturerSection();
+        closeSearchLecturersSection();
+        closeSearchClassesSection();
+        closeMsgSection();
+    }
+}
+
+function closeDropClassSection() {
+    if (dropClassOpen2) {
+        for (var i = 0; i < dropClass_ArrayLength; i++)
+            dropClass_ArrayOfElements[i].style.display = "none";
+        dropClassOpen1 = false;
+        dropClassOpen2 = false;
     }
 }
 
