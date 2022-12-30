@@ -18,7 +18,7 @@ $studentClass = new Database_Student_Details($_POST['student_username']);
 $studentID = $studentClass->returnStudentID();
 
 if ($studentClass->checkIfEnrolled($_POST['class_id'])) {
-	$studentClass->dropClass($studentID, $_POST['class_id']);
+	$studentClass->dropClass($_POST['class_id']);
 }
 
 $redirect = "http://localhost/admin_dashboard.php";

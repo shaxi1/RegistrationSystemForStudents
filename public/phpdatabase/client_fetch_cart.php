@@ -25,23 +25,19 @@ if(isset($_POST["query"])) {
 	$search = mysqli_real_escape_string($connect, $_POST["query"]);
 
 	$query = "
-		SELECT * FROM class 
-		WHERE (name LIKE '%".$search."%'
-		OR departament LIKE '%".$search."%'
-		OR course LIKE '%".$search."%'
-		OR semester LIKE '%".$search."%') 
-		AND class_id LIKE (
-			SELECT class_id FROM class_registration 
-			WHERE student_id = '".$student_id."'
-		)
+		SELECT * FROM class
+		INNER JOIN class_registration ON class.class_id = class_registration.class_id
+		WHERE class.class_name LIKE '%".$search."%'
+		(OR class.departament LIKE '%".$search."%'
+		OR class.course LIKE '%".$search."%'
+		OR class.semester LIKE '%".$search."%')
+		AND class_registration.student_id = '".$student_id."'
 	";
 } else {
 	$query = "
-		SELECT * FROM class 
-		WHERE class_id LIKE (
-			SELECT class_id FROM class_registration 
-			WHERE student_id = '".$student_id."'
-		)
+		SELECT * FROM class
+		INNER JOIN class_registration ON class.class_id = class_registration.class_id
+		WHERE class_registration.student_id = '".$student_id."'
 	";
 }
 

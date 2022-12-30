@@ -120,17 +120,18 @@ class Database_Student_Details {
 	}
 
 	public function checkIfEnrolled($class_id) {
-		$query = sprintf("SELECT COUNT(*) as count FROM class_registration WHERE class_id = '%s' AND student_id = '%s'",
-			mysqli_real_escape_string(self::$sql_classes, self::$student_id),
-			mysqli_real_escape_string(self::$sql_classes, $class_id));
-		
-		$result = mysqli_query(self::$sql_classes, $query);
-		$row = mysqli_fetch_assoc($result);
-		$count = $row['count'];
+		$stmt = self::$sql_classes->prepare('SELECT * FROM class_registration WHERE student_id = ? AND class_id = ?');
+		$stmt->bind_param('ii', self::$student_id, $class_id);
+		$stmt->execute();
+		$stmt->store_result();
 
-		if ($count > 0)
+		if ($stmt->num_rows > 0) {
+			$stmt->close();
 			return true;
-		return false;
+		} else {
+			$stmt->close();
+			return false;
+		}
 	}
 
 	public function enrollToClass($class_id) {

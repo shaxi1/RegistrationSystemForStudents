@@ -18,10 +18,13 @@ $studentClass = new Database_Student_Details($_POST['username']);
 $studentID = $studentClass->returnStudentID();
 
 if (!$studentClass->checkIfEnrolled($_POST['class_id'])) {
-	$studentClass->enrollToClass($studentID, $_POST['class_id']);
+	$studentClass->enrollToClass($_POST['class_id']);
 } else {
-	$studentClass->dropClass($studentID, $_POST['class_id']);
+	$studentClass->dropClass($_POST['class_id']);
 }
+
+unset($studentClass);
+unset($studentID);
 
 $redirect = "http://localhost/client_dashboard.php";
 header("Location: $redirect");
