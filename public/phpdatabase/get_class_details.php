@@ -80,6 +80,18 @@ class Database_Class_Details {
 		return $classroom_and_date;
 	}
 
+	function getClassName() {
+		$stmt = self::$sql_classes->prepare('SELECT name FROM class WHERE class_id = ?');
+		$stmt->bind_param('i', self::$class_id);
+		$stmt->execute();
+
+		$stmt->bind_result($name);
+		$stmt->fetch();
+
+		$stmt->close();
+		return $name;
+	}
+
 	private function getLocationDateId() {
 		$stmt = self::$sql_classes->prepare('SELECT location_date_id FROM class WHERE class_id = ?');
 		$stmt->bind_param('i', self::$class_id);
