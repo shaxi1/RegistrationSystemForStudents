@@ -80,8 +80,6 @@ if (mysqli_num_rows($result) > 0) {
 		$return .='
 				<td>
 					<form action="phpdatabase/drop_class.php" method="post" id="'.$form_tr.'">
-						<input type="hidden" name="student_id" value="'.$row['student_id'].'">
-						<input type="hidden" name="class_id" value="'.$row['class_id'].'">
 						<input type="submit" name="submit" value="Wypisz" id="'.$submit_tr.'" style="background-color:#cc3c43;" onMouseOver="this.style.backgroundColor=\'#2691d9\'" onMouseOut="this.style.backgroundColor=\'#cc3c43\'">
 					</form>
 				</td>
