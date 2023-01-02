@@ -27,10 +27,10 @@ if(isset($_POST["query"])) {
 	$query = "
 		SELECT * FROM class
 		INNER JOIN class_registration ON class.class_id = class_registration.class_id
-		WHERE class.name LIKE '%".$search."%'
+		WHERE (class.name LIKE '%".$search."%'
 		OR class.departament LIKE '%".$search."%'
 		OR class.course LIKE '%".$search."%'
-		OR class.semester LIKE '%".$search."%'
+		OR class.semester LIKE '%".$search."%')
 		AND class_registration.student_id = '".$student_id."'
 	";
 } else {
