@@ -3,11 +3,12 @@ Project for iabd class
 
 # Mainpage
 
-PHOTO
+![mainpage](./screenshots/mainpage.png)
 
 # Login/Register
 
-PHOTO
+![login](./screenshots/login.PNG)
+![register](./screenshots/register.PNG)
 
 # Dashboard Sections
 
@@ -17,19 +18,17 @@ More of them can easily be implemented by adding a new div and open/close JS fun
 
 # Responsive sidebar
 
-Photo
+![sidebar](./screenshots/sidebar.PNG)
 
 # Realtime Search
 
-Photo
+![realtime_search](./screenshots/realtime_search.PNG)
 
 # Profile Page
 
 All data is fetched from the database.
 
-PHOTO
-
-PHOTOS HERE
+![profile_page](./screenshots/profile_page.PNG)
 
 # Technologies used
 * mySQL database
