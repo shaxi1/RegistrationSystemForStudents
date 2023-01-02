@@ -16,6 +16,11 @@ Admin and Client dashboard include sections, each with a different functionality
 The sections are shown and hidden with javascript, by modifing "display" property.
 More of them can easily be implemented by adding a new div and open/close JS function.
 
+<p align="center">
+  </br>
+  <img src="./screenshots/admin_sections.PNG" />
+</p>
+
 # Responsive sidebar
 
 ![sidebar](./screenshots/sidebar.PNG)
